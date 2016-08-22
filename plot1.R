@@ -20,7 +20,10 @@ NEI <- readRDS(summaryFile)
 SCC <- readRDS(sourceFile)
 
 # Filter the data
-filtered <- NEI %>% select(year, Emissions) %>% group_by(year) %>% summarise_each(funs(sum(Emissions)))
+filtered <- NEI %>% 
+  select(year, Emissions) %>% 
+  group_by(year) %>% 
+  summarise_each(funs(sum(Emissions)))
 
 # Create the PNG device
 png(filename = "plot1.png", width = 480, height = 480)
@@ -30,8 +33,9 @@ bp <- barplot(
   filtered$Emissions / 1000, 
   names.arg = filtered$year, 
   xlab = "Year", 
-  ylab = expression(paste("Emissions ","PM"[2.5]," in (ton/1000)")),
-  ylim = c(0,8000))
+  ylab = expression(paste("PM"[2.5]," in (ton/1000)")),
+  ylim = c(0,8000),
+  main = expression(paste("Total emissions of ", "PM"[2.5], " in the United States")))
 labels <- sapply(filtered$Emissions, function (el) { paste(toString(as.integer(round(el))), " ton") })
 text(bp, 0, labels, cex = 1, pos = 3)
 
