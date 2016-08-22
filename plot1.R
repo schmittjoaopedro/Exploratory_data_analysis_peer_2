@@ -21,16 +21,8 @@ SCC <- readRDS(sourceFile)
 
 filtered <- NEI %>% select(year, Emissions) %>% group_by(year) %>% summarise_each(funs(sum(Emissions)))
 
-plot(
-  filtered$year, 
-  log10(filtered$Emissions), 
+barplot(
+  filtered$Emissions, 
+  names.arg = filtered$year, 
   xlab = "Year", 
-  ylab = "Emissions in TON (total)", 
-  pch = 19, col = "blue", 
-  main = "Log10 ammount of emission by Year.",
-  cex = 1.5,
-  ylim = c(6.5,7.5))
-text(
-  filtered$year + 0.1, 
-  log10(filtered$Emissions) + 0.1, 
-  labels = filtered$year)
+  ylab = expression("Emissions in TON * 1000 PM"[2.5]))
