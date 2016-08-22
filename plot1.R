@@ -26,4 +26,4 @@ bp <- barplot(
   names.arg = filtered$year, 
   xlab = "Year", 
   ylab = expression(paste("Emissions","PM"[2.5],"in (ton/1000)")))
-text(bp, 0, paste(round(filtered$Emissions / 1000), " x1000"), cex = 1, pos = 3)
+text(bp, 0, paste(filtered$Emissions, " ton"), cex = 1, pos = 3)
