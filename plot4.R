@@ -43,4 +43,4 @@ g + geom_point(color = "blue", size = 2) +
   ylim(350,650)
 
 # Flush the PNG file
-ggsave(file="plot4.png", width = 8, height = 6)
+ggsave(file="plot4.png", width = 7, height = 5)

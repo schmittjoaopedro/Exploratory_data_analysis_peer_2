@@ -36,4 +36,4 @@ g + facet_grid(. ~ type) +
   theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
 
 # Flush the PNG file
-ggsave(file="plot3.png", width = 8, height = 6)
+ggsave(file="plot3.png", width = 7, height = 5)

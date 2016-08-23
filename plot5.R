@@ -37,4 +37,4 @@ g + geom_bar(stat = "identity") +
     ylab(expression(paste("Emission of PM"[2.5], " in ton"))) +
     ggtitle(expression(paste("Emission of PM"[2.5]," in Baltimore City, Maryland by Motor Vehicle")))
 
-ggsave(filename = "plot5.png", width = 8, height = 6)
+ggsave(filename = "plot5.png", width = 7, height = 5)
