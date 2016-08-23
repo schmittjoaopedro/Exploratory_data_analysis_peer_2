@@ -30,8 +30,10 @@ filtered <- NEI %>%
 g <- ggplot(filtered, aes(x = year, y = log10(Emissions), fill = type))
 g + facet_grid(. ~ type) + 
   geom_boxplot() + 
-  labs(x = "Year", y = expression(paste("Log"[10], " of Emissions PM"[2.5]))) +
-  ggtitle('Emissions by Type in Baltimore City, Maryland')
+  xlab("Year") +
+  ylab(expression(paste("Log"[10], " of Emissions PM"[2.5]))) +
+  ggtitle('Emissions by Type in Baltimore City, Maryland') +
+  theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
 
 # Flush the PNG file
-ggsave(file="plot3.png")
+ggsave(file="plot3.png", width = 8, height = 6)

@@ -29,7 +29,7 @@ NEIReduced <- NEI %>%
   summarise_each(funs(sum(Emissions)))
 
 # Create labels
-labels <- sapply(NEIReduced$Emissions, function (el) { toString(as.integer(round(el))) })
+labels <- sapply(NEIReduced$Emissions, function (el) { paste(toString(as.integer(round(el))), " ton") })
 
 # Draw the chart
 g <- ggplot(NEIReduced, aes(year, Emissions / 1000))
@@ -43,4 +43,4 @@ g + geom_point(color = "blue", size = 2) +
   ylim(350,650)
 
 # Flush the PNG file
-ggsave(file="plot4.png")
+ggsave(file="plot4.png", width = 8, height = 6)
